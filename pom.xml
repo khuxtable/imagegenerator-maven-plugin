@@ -153,7 +153,7 @@
 	</distributionManagement>
 	<scm>
 		<connection>scm:git:git://github.com/khuxtable/imagegenerator-maven-plugin.git</connection>
-		<developerConnection>scm:git:git://github.com/khuxtable/imagegenerator-maven-plugin.git</developerConnection>
+		<developerConnection>scm:git:git+ssh://git@github.com/khuxtable/imagegenerator-maven-plugin.git</developerConnection>
 		<url>http://github.com/khuxtable/imagegenerator-maven-plugin</url>
 	</scm>
 	<reporting>
