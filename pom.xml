@@ -98,7 +98,6 @@
 				</dependencies>
 				<configuration>
 					<goals>deploy</goals>
-					<tagBase>git+ssh://git@github.com:khuxtable/imagegenerator-maven-plugin.git</tagBase>
 				</configuration>
 			</plugin>
 			<plugin>
