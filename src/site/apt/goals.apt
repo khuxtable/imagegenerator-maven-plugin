@@ -1,0 +1,65 @@
+    -----
+    Plugin Documentation
+    -----
+
+Plugin Documentation
+
+  Goals available for this plugin:
+  
+*--------------------------------------------------+--------------------+
+ {{{./generate-mojo.html}imagegenerator:generate}} | Generates images based on descriptions in an XML configuration file
+                                                   | to a directory.
+*--------------------------------------------------+--------------------+
+
+* System Requirements
+
+  The following specifies the minimum requirements to run this Maven plugin:
+
+*-----------+--------+
+ Maven      | 2.2.1 
+*-----------+--------+
+ JDK        | 1.5
+*-----------+--------+
+ Memory     | No minimum requirement.
+*-----------+--------+
+ Disk Space | No minimum requirement.
+*-----------+--------+
+
+* Usage
+
+  You should specify the version in your project's plugin configuration:
+
++----------
+<project>
+  ...
+  <build>
+    <!-- To define the plugin version in your parent POM -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.kathrynhuxtable.maven.plugins</groupId>
+          <artifactId>imagegenerator-maven-plugin</artifactId>
+          <version>1.0</version>
+        </plugin>
+        ...
+      </plugins>
+    </pluginManagement>
+    <!-- To use the plugin goals in your POM or parent POM -->
+    <plugins>
+      <plugin>
+        <groupId>org.kathrynhuxtable.maven.plugins</groupId>
+        <artifactId>imagegenerator-maven-plugin</artifactId>
+        <version>1.0</version>
+      </plugin>
+      ...
+    </plugins>
+  </build>
+  ...
+</project>
++----------
+
+  For more information, see {{{http://maven.apache.org/guides/mini/guide-configuring-plugins.html}"Guide to Configuring Plug-ins"}}.
+
+~~ $Id$
+
+	

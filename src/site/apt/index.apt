@@ -1,0 +1,26 @@
+    -----
+    Introduction
+    -----
+
+Image Generator Maven Plugin
+
+  The Image Generator plugin generates image files from an XML description of objects.
+  This allows for constructor arguments and client properties, and is useful
+  for creating documentation for Swing look and feel packages, and also for
+  documenting custom components.
+
+* Goals Overview
+
+  The Image Generator plugin has one goal:
+  
+  * {{{./generate-mojo.html} imagegenerator:generate}}
+    is used to generate images based on descriptions in an XML configuration
+    file to a directory.
+    
+* Usage
+
+  Information on using the Image Generator plugin, including an example, can be found on the {{{./usage.html}usage}} page.
+
+~~ $Id$
+
+	

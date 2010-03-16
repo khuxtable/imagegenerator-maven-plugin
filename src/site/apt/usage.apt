@@ -1,0 +1,190 @@
+    -----
+    Usage
+    -----
+
+Usage
+
+  Using the Image Generator Maven plugin you can generate image files of Swing components
+  based on descriptions in an XML configuration file. These files can then be used in your
+  site documentation.
+
+* Generating the Image Files
+
+  You can run the goal directly by executing:
+  
++------
+mvn imagegenerator:generate
++------
+
+  It is better to bind the goal to the <<<pre-site>>> execution phase, thus:
+
++------
+<plugin>
+    <groupId>org.kathrynhuxtable.maven.plugins</groupId>
+    <artifactId>imagegenerator-maven-plugin</artifactId>
+    <version>1.0</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <phase>pre-site</phase>
+        </execution>
+    </executions>
+    ...
+</plugin>
++------
+
+  That way you can simply execute:
+
++------
+mvn site
++------
+
+  and the images will be generated before your site documentation.
+
+  By default, the images are generated into <<<$\{project.build.directory\}/generated-site/resources/images>>>,
+  which will be copied into the <<<images>>> folder of your site documentation. You can override this by
+  specifying the <<<outputDirectory>>> parameter in the <<<configuration>>> section of the plugin, as in the
+  example below, or by specifying the <<<$\{imagegenerator.outputDirectory\}>>> expression in your POM or on the
+  command line.
+  
+* A Full Example
+
+  The following is a complete example of using the Image Generator Maven plugin.
+  
+** In the POM
+
++------
+<project>
+  ...
+  <build>
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.kathrynhuxtable.maven.plugins</groupId>
+        <artifactId>imagegenerator-maven-plugin</artifactId>
+        <version>1.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <phase>pre-site</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <lookAndFeel>com.seaglasslookandfeel.SeaGlassLookAndFeel</lookAndFeel>
+          <configFile>${basedir}/src/site/controls-images.xml</configFile>
+          <outputDirectory>${project.build.directory}/generated-site/resources/gen</outputDirectory>
+          <savedConfigFile>${project.build.directory}/controls-images.xml</savedConfigFile>
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>  
++------
+
+  The example above binds the <<<generate>>> goal to the <<<pre-site>>> phase,
+  causing it to run before the site documentation is created.
+  
+  The <<<lookAndFeel>>> parameter causes the Sea Glass look and feel to be set as the Swing look and feel.
+  Any images will be created with that look and feel.
+  
+  The <<<configFile>>> parameter overrides the default <<<$\{basedir\}/src/site/image-generator.xml>>> as the
+  location of the XML configuration file.
+  
+  The <<<outputDirectory>>> parameter overrides the default <<<$\{project.build.directory\}/generated-site/resources/images>>>
+  location to create the files under the <<<gen>>> directory instead. This will result in them being in the <<<gen>>> sub-directory
+  of your final site documentation.
+  
+  Finally, the <<<savedConfigFile>>> parameter overrides the default <<<$\{project.build.directory\}/generated-site/image-generator.xml>>>
+  location to create the saved copy of the XML configuration file in the main target directory with the name <<<controls-images.xml>>>.
+
+** The XML Configuration File
+
+  The XML configuration file is of the form:
+  
++------
+<?xml version="1.0"?>
+<images>
+  <image file="button" class="javax.swing.JButton" width="100" height="27"
+         panelWidth="120" panelHeight="32">
+    <argument type="String" value="Button" />
+  </image>
+
+  <image file="button-textured" class="javax.swing.JButton" width="100" height="27"
+         panelWidth="120" panelHeight="32">
+    <argument type="String" value="Button" />
+    <clientProperty name="JButton.buttonType" type="String" value="textured" />
+  </image>
+
+  <image file="text-field" class="javax.swing.JTextField" width="100" height="27"
+         panelWidth="120" panelHeight="32">
+    <argument type="String" value="Text" />
+  </image>
+
+  <image file="search-field" class="javax.swing.JTextField" width="100" height="27"
+         panelWidth="120" panelHeight="32">
+    <clientProperty name="JTextField.variant" type="String" value="search" />
+    <clientProperty name="JTextField.Search.PlaceholderText" type="String"
+                    value="Search..." />
+  </image>
+
+  <image file="search-field-text" class="javax.swing.JTextField" width="100" height="27"
+         panelWidth="120" panelHeight="32">
+    <argument type="String" value="sea glass" />
+    <clientProperty name="JTextField.variant" type="String" value="search" />
+    <clientProperty name="JTextField.Search.PlaceholderText" type="String"
+                    value="Search..." />
+  </image>
+</images>
++------
+
+  The <<<file>>> attribute specifies the filename portion of the file to be produced. It will have the extension "<<<.png>>>"
+  appended to it and be written to the output directory, e.g. the file "<<<button>>>" will be written to <<<button.png>>>.
+  
+  The <<<class>>> attribute is a fully qualified class name representing a Swing control,
+  which will be instantiated using the arguments specified, and have the client properties
+  specified applied to it.
+  
+  The <<<width>>> and <<<height>>> attributes specify the width and height in pixels of the control.
+  
+  The <<<panelWidth>>> and <<<panelHeight>>> attributes specify the width and height of the JPanel the control will be drawn on.
+  The control will be centered on the JPanel. If the <<<panelWidth>>> or <<<panelHeight>>> parameter is not specified it will take
+  the same value as the <<<width>>> or <<<height>>> parameter, respectively.
+  
+  The <<<argument>>> element takes two attributes: <<<type>>>, which specifies the argument type, and must be one of <<<String>>>,
+  <<<Integer>>>, <<<Float>>>, or <<<Double>>>, and <<<value>>>, which specifies the value of the argument.
+  
+  The <<<parameter>>> element takes three attributes:  <<<name>>>, which specifies the client property name (or "key"),
+  and <<<type>>> and <<<value>>>, which have the same meanings as in the <<<argument>>> element.
+  
+  The example generates the following images:
+
+*** button.png
+
+[images/button.png]
+
+*** button-textured.png
+
+[images/button-textured.png]
+
+*** text-field.png
+
+[images/text-field.png]
+
+*** search-field.png
+
+[images/search-field.png]
+
+*** search-field-text.png
+
+[images/search-field-text.png]
+
+~~ $Id$
+
+	

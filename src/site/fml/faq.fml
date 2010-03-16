@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+  title="Frequently Asked Questions"
+  toplink="false">
+
+  <part id="general">
+    <title>General</title>
+
+    <faq id="whats-imagegenerator">
+      <question>
+        What is the Image Generator Maven Plugin?
+      </question>
+      <answer>
+        <p>A Maven plugin to generate image files from an XML description of objects.
+          This allows for constructor arguments and client properties, and is useful
+          for creating documentation for Swing look and feel packages, and also for
+          documenting custom components.</p>
+      </answer>
+    </faq>
+  </part>
+
+</faqs>
