@@ -21,6 +21,7 @@ package org.kathrynhuxtable.maven.plugins.imageGenerator;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -30,21 +31,26 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
 import java.lang.reflect.Constructor;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
+
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -142,19 +148,32 @@ public class ImageGeneratorMojo extends AbstractMojo {
 
         createOutputDirectoryIfNecessary();
 
-        try {
-            UIManager.setLookAndFeel(lookAndFeel);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new MojoExecutionException("Unable to set look and feel " + lookAndFeel, e);
-        }
-
-        panel = new JPanel();
-        panel.setOpaque(true);
+        panel = null;
 
         generateImageFiles(config, oldConfig);
 
         copyConfigToOldConfig(configFile, savedConfigFile);
+    }
+
+    /**
+     * Set the UI and create the JPanel if not already done. This allows us to
+     * only do this if we need to, saving execution time when no changes are
+     * made.
+     *
+     * @throws MojoExecutionException if unable to set the UI.
+     */
+    private void createUIIfNecessary() throws MojoExecutionException {
+        if (panel == null) {
+            try {
+                UIManager.setLookAndFeel(lookAndFeel);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new MojoExecutionException("Unable to set look and feel " + lookAndFeel, e);
+            }
+
+            panel = new JPanel();
+            panel.setOpaque(true);
+        }
     }
 
     /**
@@ -170,10 +189,12 @@ public class ImageGeneratorMojo extends AbstractMojo {
         for (String filename : config.keySet()) {
             ImageInfo info    = config.get(filename);
             ImageInfo oldInfo = oldConfig.get(filename);
+            File      file    = new File(outputDirectory, filename + ".png");
 
-            if (oldInfo == null || !info.equals(oldInfo)) {
+            if (oldInfo == null || !file.exists() || !info.equals(oldInfo)) {
                 getLog().info("Creating image file " + filename);
-                drawImage(filename, info.className, info.width, info.height, info.panelWidth, info.panelHeight, info.args,
+                createUIIfNecessary();
+                drawImage(file, info.className, info.width, info.height, info.panelWidth, info.panelHeight, info.args,
                           info.properties);
             }
         }
@@ -182,7 +203,7 @@ public class ImageGeneratorMojo extends AbstractMojo {
     /**
      * Create an image from the info and write it to a file.
      *
-     * @param  filename    the filename for the image.
+     * @param  file        the file to write the image to.
      * @param  className   the class of control to be created, e.g.
      *                     "javax.swing.JButton".
      * @param  width       the desired width of the control.
@@ -195,7 +216,7 @@ public class ImageGeneratorMojo extends AbstractMojo {
      *
      * @throws MojoExecutionException if an error occurs.
      */
-    private void drawImage(String filename, String className, int width, int height, int panelWidth, int panelHeight, Object[] args,
+    private void drawImage(File file, String className, int width, int height, int panelWidth, int panelHeight, Object[] args,
             Map<String, Object> properties) throws MojoExecutionException {
         // Create the Swing object.
         JComponent c = createSwingObject(className, args);
@@ -209,7 +230,7 @@ public class ImageGeneratorMojo extends AbstractMojo {
         BufferedImage image = paintToBufferedImage(c, width, height, panelWidth, panelHeight);
 
         // Write the file.
-        writeImageFile(filename, image);
+        writeImageFile(file, image);
     }
 
     /**
@@ -273,19 +294,16 @@ public class ImageGeneratorMojo extends AbstractMojo {
     /**
      * Write the buffered image to the file.
      *
-     * @param  filename the filename portion of the file. The directory and the
-     *                  extension will be added.
-     * @param  image    the buffered image.
+     * @param  file  the file to write the image to.
+     * @param  image the buffered image.
      *
      * @throws MojoExecutionException if unable to write the file.
      */
-    private void writeImageFile(String filename, BufferedImage image) throws MojoExecutionException {
-        File outputfile = new File(outputDirectory, filename + ".png");
-
+    private void writeImageFile(File file, BufferedImage image) throws MojoExecutionException {
         try {
-            ImageIO.write(image, "png", outputfile);
+            ImageIO.write(image, "png", file);
         } catch (IOException e) {
-            throw new MojoExecutionException("Error writing image file " + outputfile, e);
+            throw new MojoExecutionException("Error writing image file " + file, e);
         }
     }
 
