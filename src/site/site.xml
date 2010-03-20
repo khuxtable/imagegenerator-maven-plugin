@@ -28,6 +28,7 @@
 		<menu name="Project Information">
 			<item name="Dependencies" href="dependencies.html" />
 			<item name="Issue Tracking" href="issue-tracking.html" />
+			<item name="Mailing Lists" href="mail-lists.html" />
 			<item name="Plugin Management" href="plugin-management.html" />
 			<item name="Dependencies" href="dependencies.html" />
 			<item name="Project License" href="license.html" />

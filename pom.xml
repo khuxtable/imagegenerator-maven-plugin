@@ -5,9 +5,9 @@
 	<artifactId>imagegenerator-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
 	<version>1.2-SNAPSHOT</version>
-    <prerequisites>
-        <maven>2.2.1</maven>
-    </prerequisites>
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
 	<name>Image Generator Maven plugin</name>
 	<description>
         A Maven plugin to generate image files from an XML description of objects.
@@ -44,11 +44,17 @@
 		<url>http://www.kathrynhuxtable.org</url>
 	</organization>
 	<issueManagement>
-		<system>Email Kathryn Huxtable</system>
-		<url>mailto:kathryn@kathrynhuxtable.org</url>
+		<system>GitHub</system>
+		<url>http://github.com/khuxtable/imagegenerator-maven-plugin/issues</url>
 	</issueManagement>
 	<mailingLists>
-		<mailingList></mailingList>
+		<mailingList>
+			<name>Kathryn Huxtable's Projects</name>
+			<subscribe>kathryn-huxtable-projects+subscribe@googlegroups.com</subscribe>
+			<unsubscribe>kathryn-huxtable-projects+unsubscribe@googlegroups.com</unsubscribe>
+			<post>kathryn-huxtable-projects@googlegroups.com</post>
+			<archive>http://groups.google.com/group/kathryn-huxtable-projects</archive>
+		</mailingList>
 	</mailingLists>
 	<build>
 		<plugins>
@@ -194,9 +200,10 @@
 							<report>dependency-convergence</report>
 							<report>dependency-management</report>
 							<report>project-team</report>
-                            <report>issue-tracking</report>
-                            <report>plugin-management</report>
-                            <report>plugins</report>
+							<report>issue-tracking</report>
+							<report>mailing-list</report>
+							<report>plugin-management</report>
+							<report>plugins</report>
 							<report>license</report>
 							<report>scm</report>
 						</reports>
