@@ -18,7 +18,7 @@
 
 		<menu name="Image Generator Maven Plugin">
 			<item name="Introduction" href="index.html" />
-			<item name="Goals" href="goals.html" />
+			<item name="Goals" href="plugin-info.html" />
 			<item name="Usage" href="usage.html" />
 			<item name="FAQ" href="faq.html" />
 		</menu>
@@ -27,7 +27,11 @@
 
 		<menu name="Project Information">
 			<item name="Dependencies" href="dependencies.html" />
+			<item name="Issue Tracking" href="issue-tracking.html" />
+			<item name="Plugin Management" href="plugin-management.html" />
+			<item name="Dependencies" href="dependencies.html" />
 			<item name="Project License" href="license.html" />
+			<item name="Project Plugins" href="plugins.html" />
 			<item name="Project Summary" href="project-summary.html" />
 			<item name="Project Team" href="team-list.html" />
 			<item name="Source Repository" href="source-repository.html" />

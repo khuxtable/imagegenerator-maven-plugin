@@ -1,9 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.kathrynhuxtable.maven.plugins</groupId>
 	<artifactId>imagegenerator-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
 	<version>1.2-SNAPSHOT</version>
+    <prerequisites>
+        <maven>2.2.1</maven>
+    </prerequisites>
 	<name>Image Generator Maven plugin</name>
 	<description>
         A Maven plugin to generate image files from an XML description of objects.
@@ -31,7 +35,7 @@
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
-			<url>LICENSE.txt</url>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
@@ -39,6 +43,13 @@
 		<name>kathrynhuxtable.org</name>
 		<url>http://www.kathrynhuxtable.org</url>
 	</organization>
+	<issueManagement>
+		<system>Email Kathryn Huxtable</system>
+		<url>mailto:kathryn@kathrynhuxtable.org</url>
+	</issueManagement>
+	<mailingLists>
+		<mailingList></mailingList>
+	</mailingLists>
 	<build>
 		<plugins>
 			<!-- Configure the compiler plugin to use JDK 1.5. -->
@@ -50,6 +61,18 @@
 					<source>1.5</source>
 					<target>1.5</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-docck-plugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.plexus</groupId>
@@ -169,7 +192,11 @@
 							<report>summary</report>
 							<report>dependencies</report>
 							<report>dependency-convergence</report>
+							<report>dependency-management</report>
 							<report>project-team</report>
+                            <report>issue-tracking</report>
+                            <report>plugin-management</report>
+                            <report>plugins</report>
 							<report>license</report>
 							<report>scm</report>
 						</reports>
