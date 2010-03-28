@@ -1,0 +1,24 @@
+-classpath
+'/Users/huxtable/Documents/workspace/imagegenerator-maven-plugin/target/classes:/Users/huxtable/.m2/repository/org/apache/maven/maven-plugin-api/2.0/maven-plugin-api-2.0.jar:/Users/huxtable/.m2/repository/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar:/Users/huxtable/.m2/repository/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar:/Users/huxtable/.m2/repository/org/codehaus/plexus/plexus-utils/1.0.4/plexus-utils-1.0.4.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/huxtable/Documents/workspace/imagegenerator-maven-plugin/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2010 <a href="http://www.kathrynhuxtable.org">kathrynhuxtable.org</a>. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/huxtable/Documents/workspace/imagegenerator-maven-plugin/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Image Generator Maven plugin 1.2-SNAPSHOT API'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
+-use
+-version
+-windowtitle
+'Image Generator Maven plugin 1.2-SNAPSHOT API'
