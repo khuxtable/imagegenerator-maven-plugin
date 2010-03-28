@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Image Generator Maven Plugin - Introduction</title>
+    <title>Image Generator Maven Plugin - imagegenerator:generate</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -49,8 +49,8 @@
                                 <h5>Image Generator Maven Plugin</h5>
                   <ul>
                   <li class="none">
-            <strong>Introduction</strong>
-          </li>
+                          <a href="index.html" title="Introduction">Introduction</a>
+            </li>
                   <li class="none">
                           <a href="plugin-info.html" title="Goals">Goals</a>
             </li>
@@ -124,7 +124,7 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div class="section"><h2>Image Generator Maven Plugin<a name="Image_Generator_Maven_Plugin"></a></h2><p>The Image Generator plugin generates image files from an XML description of objects. This allows for constructor arguments and client properties, and is useful for creating documentation for Swing look and feel packages, and also for documenting custom components.</p><div class="section"><h3>Goals Overview<a name="Goals_Overview"></a></h3><p>The Image Generator plugin has one goal:</p><ul><li><a href="./generate-mojo.html"> imagegenerator:generate</a> is used to generate images based on descriptions in an XML configuration file to a directory.</li></ul></div><div class="section"><h3>Usage<a name="Usage"></a></h3><p>Information on using the Image Generator plugin, including an example, can be found on the <a href="./usage.html">usage</a> page.</p><!-- $Id$ --></div></div>
+        <div class="section"><h2>imagegenerator:generate<a name="imagegenerator:generate"></a></h2><div class="section"><h3>Full name:<a name="Full_name:"></a></h3><p>org.kathrynhuxtable.maven.plugins:imagegenerator-maven-plugin:1.0:generate</p></div><div class="section"><h3>Description:<a name="Description:"></a></h3><p>Generates images of Swing controls into a directory based on descriptions in an XML file..</p></div><div class="section"><h3>Attributes:<a name="Attributes:"></a></h3><p>Requires a Maven 2.0 project to be executed. Requires dependency resolution of artifacts in scope: <tt>runtime</tt>.</p></div><div class="section"><h3>Required Parameters<a name="Required_Parameters"></a></h3><table align="center" border="0" class="bodyTable"><tr class="a"><td align="left"><b>Name</b></td><td align="left"><b>Type</b></td><td align="left"><b>Since</b></td><td align="left"><b>Description</b></td></tr><tr class="b"><td align="left"><a href="#lookAndFeel">lookAndFeel</a></td><td align="left">String</td><td align="left">-</td><td align="left">Name of the look and feel class.</td></tr></table></div><div class="section"><h3>Optional Parameters <a name="Optional_Parameters"></a></h3><table align="center" border="0" class="bodyTable"><tr class="a"><td align="left"><b>Name</b></td><td align="left"><b>Type</b></td><td align="left"><b>Since</b></td><td align="left"><b>Description</b></td></tr><tr class="b"><td align="left"><a href="#configFile">configFile</a></td><td align="left">File</td><td align="left">-</td><td align="left">Location of the configuration file.&#xa0;<br /><b>Default value is:</b> <tt>${basedir}/src/site/image-generator.xml</tt></td></tr><tr class="a"><td align="left"><a href="#outputDirectory">outputDirectory</a></td><td align="left">File</td><td align="left">-</td><td align="left">Location of the output directory.&#xa0;<br /><b>Default value is:</b> <tt>${project.build.directory}/generated-site/resources/images</tt></td></tr><tr class="b"><td align="left"><a href="#savedConfigFile">savedConfigFile</a></td><td align="left">File</td><td align="left">-</td><td align="left">Location of the saved configuration file.&#xa0;<br /><b>Default value is:</b> <tt>${project.build.directory}/generated-site/image-generator.xml</tt></td></tr></table></div><div class="section"><h3>Parameter Details<a name="Parameter_Details"></a></h3><p><a name="configFile"><b>configFile</b></a></p><p>Location of the configuration file.</p><ul><li><b>Type:</b> <tt>File</tt></li><li><b>Required:</b> <tt>No</tt></li><li><b>Expression:</b> <tt>${imagegenerator.configFile}</tt></li><li><b>Default:</b> <tt>${basedir}/src/site/image-generator.xml</tt></li></ul><p><a name="lookAndFeel"><b>lookAndFeel</b></a></p><p>Name of the look and feel class.</p><ul><li><b>Type:</b> <tt>String</tt></li><li><b>Required:</b> <tt>Yes</tt></li><li><b>Expression:</b> <tt>${imagegenerator.lookAndFeel}</tt></li></ul><p><a name="outputDirectory"><b>outputDirectory</b></a></p><p>Location of the output directory.</p><ul><li><b>Type:</b> <tt>File</tt></li><li><b>Required:</b> <tt>No</tt></li><li><b>Expression:</b> <tt>${imagegenerator.outputDirectory}</tt></li><li><b>Default:</b> <tt>${project.build.directory}/generated-site/resources/images</tt></li></ul><p><a name="savedConfigFile"><b>savedConfigFile</b></a></p><p>Location of the saved configuration file.</p><ul><li><b>Type:</b> <tt>File</tt></li><li><b>Required:</b> <tt>No</tt></li><li><b>Expression:</b> <tt>${imagegenerator.savedConfigFile}</tt></li><li><b>Default:</b> <tt>${project.build.directory}/generated-site/image-generator.xml</tt></li></ul><!-- $Id$ --></div></div>
       </div>
     </div>
     <div class="clear">

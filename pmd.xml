@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.2" timestamp="2010-03-28T15:28:39.196">
+<file name="/Users/huxtable/Documents/workspace/imagegenerator-maven-plugin/src/main/java/org/kathrynhuxtable/maven/plugins/imageGenerator/ImageGeneratorMojo.java">
+<violation beginline="399" endline="401" begincolumn="11" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.kathrynhuxtable.maven.plugins.imageGenerator" class="ImageGeneratorMojo" method="closeInputStream" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="452" endline="454" begincolumn="15" endcolumn="13" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.kathrynhuxtable.maven.plugins.imageGenerator" class="ImageGeneratorMojo" method="copyConfigToOldConfig" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+<violation beginline="574" endline="574" begincolumn="24" endcolumn="41" rule="OverrideBothEqualsAndHashcode" ruleset="Basic Rules" package="org.kathrynhuxtable.maven.plugins.imageGenerator" class="ImageGeneratorMojo$ImageInfo" method="equals" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#OverrideBothEqualsAndHashcode" priority="3">
+Ensure you override both equals() and hashCode()
+</violation>
+</file>
+</pmd>
