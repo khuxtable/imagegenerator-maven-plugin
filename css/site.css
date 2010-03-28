@@ -37,34 +37,31 @@ a.newWindow, a.newWindow:link, a.newWindow:visited, a.newWindow:active, a.newWin
   background: url(../images/newwindow.png) right center no-repeat;
   padding-right: 18px;
 }
-h1.title, h2, .article .section h1, .sect1 h1 {
+h2 {
   padding: 4px 4px 4px 6px;
-  border: none;
-  border-bottom: 1px solid #999999;
+  border: 1px solid #999999;
   color: #009560;
-  background-color: white;
+  background-color: #ddeee0;
   font-weight:900;
   font-size: x-large;
 }
-h3, .article .section .section h1, .sect2 h1 {
+h3 {
   padding: 4px 4px 4px 6px;
-  border: none;
-  border-bottom: 1px solid #aaa;
+  border: 1px solid #aaa;
+  color: #009560;
+  background-color: #eef4ee;
+  font-weight: normal;
+  font-size: large;
+}
+h4 {
+  padding: 4px 4px 4px 6px;
+  border: 1px solid #b8c4b8;
   color: #009560;
   background-color: #ffffff;
   font-weight: normal;
   font-size: large;
 }
-h4, .article .section .section .section h1, .sect3 h1 {
-  padding: 4px 4px 4px 6px;
-  border: none;
-  border-bottom: 1px solid #b8c4b8;
-  color: #009560;
-  background-color: #ffffff;
-  font-weight: normal;
-  font-size: large;
-}
-h5, .article .section .section .section .section h1, .sect4 h1 {
+h5 {
   padding: 4px 4px 4px 6px;
   color: #009560;
   font-size: normal;
@@ -76,15 +73,14 @@ p {
 #breadcrumbs {
   border-top: 1px solid #aaaaaa;
   border-bottom: 1px solid #aaaaaa;
-  background-color: white;
+  background-color: #ccd4cc;
 }
 #leftColumn {
   margin: 10px 0 0 5px;
-  border: none;
-  background-color: white;
+  border: 1px solid #999999;
+  background-color: #eef4ee;
 }
 #navcolumn h5 {
-  margin-top: 1em;
   font-size: smaller;
   border-bottom: 1px solid #aaaaaa;
   padding-top: 2px;
@@ -102,17 +98,11 @@ table.bodyTable th, table.bodyTable td {
   font-size: 1em;
 }
 
-table thead th, table tbody td {
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 0.9em;
+table.bodyTable tr.a {
+  background-color: #dde2dd;
 }
 
-table thead th, table tbody td {
-  border: 0.5px solid white;
-}
-
-table.bodyTable tr.a, div.striped table tbody tr.a {
+table.bodyTable tr.b {
   background-color: #eef4ee;
 }
 
@@ -122,27 +112,16 @@ table.bodyTable tr.a, div.striped table tbody tr.a {
 dl {
   padding: 4px 4px 4px 6px;
   border: 1px solid #aaaaaa;
-  background-color: white;
+  background-color: #eef4ee;
 }
 dt {
   color: #009560;
-}
-.xleft {
-  margin-left: 1.5em;
-}
-.xright {
-  margin-right: 1.5em;
 }
 #organizationLogo img, #projectLogo img, #projectLogo span{
   margin: 8px;
 }
 #banner {
-  margin: 1.5em;
   border-bottom: 1px solid #ffffff;
-}
-#footer {
-  margin-top: 1em;
-  border-top: 1px solid #aaaaaa;
 }
 .errormark, .warningmark, .donemark, .infomark {
   background: url(../images/icon_error_sml.gif) no-repeat;
@@ -160,23 +139,3 @@ dt {
   background-image: url(../images/icon_info_sml.gif);
 }
 
-#bannerLeft { float: left; }
-
-#bannerRight { float: right; }
-
-pre {
-    font-size: 110%;
-    padding: 5px;
-}
-#lastPublished {
-  font-size: x-small;
-  padding-bottom: 0.75em;
-}
-
-.synopsis {
-  padding: 12px;
-  margin: 1em 7px 1em 7px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #999999;
-}
