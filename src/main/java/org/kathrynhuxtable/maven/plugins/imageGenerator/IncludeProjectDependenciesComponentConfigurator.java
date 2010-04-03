@@ -20,15 +20,12 @@
 package org.kathrynhuxtable.maven.plugins.imageGenerator;
 
 import java.io.File;
-
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.classworlds.ClassRealm;
-
 import org.codehaus.plexus.component.configurator.AbstractComponentConfigurator;
 import org.codehaus.plexus.component.configurator.ComponentConfigurationException;
 import org.codehaus.plexus.component.configurator.ConfigurationListener;
@@ -66,7 +63,7 @@ public class IncludeProjectDependenciesComponentConfigurator extends AbstractCom
             ClassRealm containerRealm, ConfigurationListener listener) throws ComponentConfigurationException {
         addProjectDependenciesToClassRealm(expressionEvaluator, containerRealm);
 
-        converterLookup.registerConverter(new ClassRealmConverter(containerRealm));
+        converterLookup.registerConverter(new ClassRealmConverter((org.codehaus.plexus.classworlds.realm.ClassRealm) containerRealm));
 
         ObjectWithFieldsConverter converter = new ObjectWithFieldsConverter();
 
