@@ -3,7 +3,7 @@
 	<groupId>org.kathrynhuxtable.maven.plugins</groupId>
 	<artifactId>imagegenerator-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<version>1.2-SNAPSHOT</version>
+	<version>1.1.2-SNAPSHOT</version>
 	<prerequisites>
 		<maven>2.2.1</maven>
 	</prerequisites>
@@ -125,6 +125,7 @@
 				</dependencies>
 				<configuration>
 					<goals>deploy</goals>
+                    <mavenExecutorId>forked-path</mavenExecutorId>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -314,6 +315,9 @@
 								</goals>
 							</execution>
 						</executions>
+                        <configuration>
+                            <useAgent>true</useAgent>
+                        </configuration>
 					</plugin>
 				</plugins>
 			</build>
