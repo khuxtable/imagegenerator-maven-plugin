@@ -4,7 +4,7 @@
 	<groupId>org.kathrynhuxtable.maven.plugins</groupId>
 	<artifactId>imagegenerator-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<version>1.2-SNAPSHOT</version>
+	<version>1.1.1-SNAPSHOT</version>
 	<prerequisites>
 		<maven>2.2.1</maven>
 	</prerequisites>
@@ -16,7 +16,7 @@
         documenting custom components. 
     </description>
 	<inceptionYear>2010</inceptionYear>
-	<url>http://www.kathrynhuxtable.org/projects/site/imagegenerator-maven-plugin</url>
+	<url>http://khuxtable.github.com/imagegenerator-maven-plugin</url>
 	<developers>
 		<developer>
 			<id>khuxtable</id>
@@ -131,6 +131,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.3</version>
 				<dependencies>
 					<dependency>
 						<groupId>org.apache.maven.scm</groupId>
@@ -140,6 +141,23 @@
 				</dependencies>
 			</plugin>
 		</plugins>
+		<extensions>
+            <extension>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-provider-gitexe</artifactId>
+                <version>1.3</version>
+            </extension>
+            <extension>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-manager-plexus</artifactId>
+                <version>1.3</version>
+            </extension>
+			<extension>
+				<groupId>org.kathrynhuxtable.maven.wagon</groupId>
+				<artifactId>wagon-gitsite</artifactId>
+				<version>0.1</version>
+			</extension>
+		</extensions>
 	</build>
 	<dependencies>
 		<dependency>
@@ -150,7 +168,12 @@
 		<dependency>
 			<groupId>org.codehaus.plexus</groupId>
 			<artifactId>plexus-container-default</artifactId>
-			<version>1.0-alpha-9-stable-1</version>
+			<version>1.5.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.plexus</groupId>
+			<artifactId>plexus-utils</artifactId>
+			<version>1.5.6</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -176,8 +199,8 @@
 			concerned.
 		-->
 		<site>
-			<id>personal_website</id>
-			<url>scpexe://shell.sonic.net/home/k/kathryn5/public_html/projects/site/imagegenerator-maven-plugin</url>
+			<id>github-site</id>
+			<url>gitsite:git@github.com/khuxtable/imagegenerator-maven-plugin.git</url>
 		</site>
 	</distributionManagement>
 	<scm>
